@@ -16,6 +16,17 @@ public class ShopTillTest {
 
   private final BigDecimal totalCostShopingCart = new BigDecimal("2.80");
 
+  private final BigDecimal totalCostShopingCartWithOffers = new BigDecimal("1.95");
+
+  @Test
+  public void scanItemsWithOfferCorrectTotalCostTest() {
+
+    ShopTill shopTill = new ShopTill();
+
+    BigDecimal actualTotalCost = shopTill.scanItemsWithOffer(shopingCart);
+
+    assertEquals(totalCostShopingCartWithOffers, actualTotalCost);
+  }
 
   @Test
   public void scanItemsCorrectTotalCostTest() {
@@ -26,5 +37,6 @@ public class ShopTillTest {
 
     assertEquals(totalCostShopingCart, actualTotalCost);
   }
+
 
 }
